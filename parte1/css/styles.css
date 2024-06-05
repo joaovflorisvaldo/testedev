@@ -1,2 +1,200 @@
-/* Coloque o CSS neste arquivo */
-
+body {
+    margin: 0;
+}
+.container {
+    width: 1170px;
+    margin: auto;
+}
+.menu {
+    display: flex;
+    align-items: center;
+    height: 74px;
+    justify-content: space-between;
+}
+.header-left {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+.header-right {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+.menu-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    text-align: left;
+    text-decoration: none;
+    color: #0D0C0C;
+}
+.menu-text:hover {
+    border-bottom: 4px #000000 solid;
+}
+.search {
+    position: relative;
+    margin: auto;
+    color: #B0B0B0;
+    width: 126px;
+    height: 26px;
+    border-bottom: 1px #AAAAAA solid;
+}
+.search input {
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: left;
+    width: 126px;
+}
+.search input:focus, .search input:focus-visible {
+    border: none;
+    outline: none;
+}
+.search input::placeholder {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: left;
+    color: #B0B0B0;
+}
+.search button {
+    border: none;
+    background: none;
+    margin: 0;
+    padding-left: 10px;
+    padding-right: 0 !important;
+    box-shadow: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 3;
+}
+.language {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: left;
+    background: #F5F5F5;
+    color: #0D0C0C;
+    width: 145px;
+    height: 36px;
+    display: flex;
+    gap: 8px;
+    border-radius: 4px 0px 0px 0px;
+    align-items: center;
+    justify-content: center;
+}
+.banner {
+    display: grid;
+}
+.title {
+    font-family: 'inter', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 29.05px;
+    text-align: center;
+    color: #0D0C0C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    margin: 35px 0 30px;
+}
+.title span {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 23.44px;
+    text-align: left;
+    color: #BBBBBB;
+    display: flex;
+    align-items: center;
+}
+.grid-container {
+    justify-items: center;
+    display: grid;
+    grid-template-columns: 23% 23% 23% 23%;
+    gap: 25px;
+    justify-content: space-evenly;
+}
+.product {
+    display: grid;
+    gap: 5px;
+}
+.product-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 23.44px;
+    text-align: left;
+    color: #0D0C0C;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;   
+}
+.product-price {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 18.75px;
+    text-align: left;
+    color: #0D0C0C;
+}
+.product-price-discount {
+    color: #BABABB;
+    margin-left: 15px;
+}
+.line-word {
+    background-color: #BABABB;
+    border-bottom: 2px solid #BABABB;
+    height: 0px;
+    text-align: center;
+    padding-left: 5px;
+    position: absolute;
+    z-index: 2;
+    width: 58px;
+    margin-top: 7px;
+}
+.price-installment {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 14.06px;
+    text-align: left;
+    color: #646464;
+}
+.product-img-api {
+    max-height: 250px;
+    margin: auto;
+}
+.product-img {
+    max-height: 440px;
+    margin: auto;
+}
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 1170px; 
+    margin: 0 auto;
+    padding-bottom: 41.25%;
+    overflow: hidden;
+}
+.video-container iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.5);
+    border-radius: 16px;
+}
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
