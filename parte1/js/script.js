@@ -39,7 +39,20 @@ function fetchProducts() {
             productDiv.classList.add('product');
 
             productDiv.innerHTML = `
-                <img src="${product.image}" alt="${product.title}" class="img-responsive product-img-api">
+                <div class="block-img">
+                    <img src="${product.image}" alt="${product.title}" class="img-responsive product-img-api">
+                    <div class="card-product">
+                        <div class="size">
+                            <div class="btn-size size-pp">PP</div>
+                            <div class="btn-size size-p">P</div>
+                            <div class="btn-size size-m">M</div>
+                            <div class="btn-size size-g">G</div>
+                            <div class="btn-size size-gg">GG</div>
+                            <div class="btn-size size-xgg">XGG</div>
+                        </div>
+                        <button class="btn-buy">COMPRAR</button>
+                    </div>
+                </div>
                 <div class="product-title">${product.title}</div>
                 <div class="product-price"><strong>Preço:</strong> ${formattedPrice}
                     <span class="product-price-discount"><span class="line-word"></span>${formattedDiscountedPrice}</span></br>
@@ -52,3 +65,58 @@ function fetchProducts() {
     .catch(error => console.error('Error fetching products:', error));
 }
 window.onload = fetchProducts;
+
+document.addEventListener('DOMContentLoaded', function () {
+    const socialMediaImages = document.querySelectorAll('.social-media img');
+    socialMediaImages.forEach(function (img) {
+        const originalSrc = img.src;
+        function addVariantToSrc(src) {
+            const parts = src.split('.');
+            return parts.slice(0, -1).join('.') + '-variant.' + parts[parts.length - 1];
+        }
+        const newSrc = addVariantToSrc(originalSrc);
+        img.addEventListener('mouseover', function () {
+            img.src = newSrc;
+        });
+        img.addEventListener('mouseout', function () {
+            img.src = originalSrc;
+        });
+    });
+});
+
+var link = "https://api.whatsapp.com/send/?phone=5511939574524&text&type=phone_number&app_absent=0";
+var btnWhatsApp = document.createElement('a');
+btnWhatsApp.href = link;
+btnWhatsApp.target = '_blank';
+btnWhatsApp.className = 'btn-whatsapp';
+var img = document.createElement('img');
+img.src = './image/btn-whatsapp.svg?v=1';
+btnWhatsApp.appendChild(img);
+document.body.appendChild(btnWhatsApp);
+
+document.addEventListener('DOMContentLoaded', function () {
+    const socialMediaImages = document.querySelectorAll('.btn-whatsapp img');
+    socialMediaImages.forEach(function (img) {
+        const originalSrc = img.src;
+        function addVariantToSrc(src) {
+            const parts = src.split('.');
+            return parts.slice(0, -1).join('.') + '-variant.' + parts[parts.length - 1];
+        }
+        const newSrc = addVariantToSrc(originalSrc);
+        img.addEventListener('mouseover', function () {
+            img.src = newSrc;
+        });
+        img.addEventListener('mouseout', function () {
+            img.src = originalSrc;
+        });
+    });
+});
+
+document.querySelectorAll('.btn-size').forEach(function(button) {
+    button.addEventListener('click', function() {
+        document.querySelectorAll('.btn-size').forEach(function(btn) {
+            btn.classList.remove('selected');
+        });
+        button.classList.add('selected');
+    });
+});
