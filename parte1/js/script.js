@@ -112,11 +112,33 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-document.querySelectorAll('.btn-size').forEach(function(button) {
-    button.addEventListener('click', function() {
-        document.querySelectorAll('.btn-size').forEach(function(btn) {
-            btn.classList.remove('selected');
+function whatsappFlutter(){
+    document.querySelectorAll('.btn-size').forEach(function(button) {
+        button.addEventListener('click', function() {
+            document.querySelectorAll('.btn-size').forEach(function(btn) {
+                btn.classList.remove('selected');
+            });
+            button.classList.add('selected');
         });
-        button.classList.add('selected');
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    var hamburgerMenu = document.getElementById('hamburger-menu');
+    var menuContent = document.getElementById('menu-content');
+
+    hamburgerMenu.addEventListener('click', function() {
+        menuContent.classList.toggle('active');
     });
 });
+
+function adjustIframeHeight() {
+    const iframe = document.getElementById("iframe");
+    const width = iframe.clientWidth;
+    const height = width * 9 / 16;
+    iframe.style.height = `${height}px`;
+}
+
+whatsappFlutter()
+window.addEventListener('resize', adjustIframeHeight);
+document.addEventListener('DOMContentLoaded', adjustIframeHeight);
