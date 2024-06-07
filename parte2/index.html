@@ -18,23 +18,61 @@
 			<li>É permitido o uso de JQuery;</li>
 			<li>As respostas podem devem ser enviadas em arquivo nomeado como "parte2".</li>
 		</ul>
+		<h4>Fiquei meio confuso, no git fala que nao pode usar JQuery e aqui fala que pode, fiz com JQuery aqui, na parte 1 fiz com js puro</h4>
 		<div class="border"></div>
 		<!--- PERGUNTA 1 ---->
 		<p>1) Faça um laço for de 0 a 100 que retorne um array com todos os números que são divisíveis por 7 e exiba no console.</p>
 
 		<!--- RESPOSTA 1 ---->
 		<script>
-			console.log('resposta 1');
+			console.log('resposta 1')
 			//insira a resposta aqui.
+			var numbers = []
+			for ( var i = 0; i<=100; i++) {
+				if(i % 7 === 0){
+					numbers.push(i)
+
+				}
+			}
+			console.log(numbers);
 		</script>
 
 		<div class="border"></div>
 		<!--- PERGUNTA 2 ---->
-		<p>2)Crie uma função que receba dois parâmetros, o primeiro chamado 'texto' (string) e o segundo chamado 'vezes' (número), com o objetivo retornar uma nova string com o texto repetido quantas vezes foi passado no parâmetro 'vezes', separado por vírgula. Exibir esta nova string no console.</p>
+		<p>2)Crie uma função que receba dois parâmetros, o primeiro chamado 'texto' (string) e o segundo chamado 'vezes' (número), com o objetivo retornar uma nova 
+			string com o texto repetido quantas vezes foi passado no parâmetro 'vezes', separado por vírgula. Exibir esta nova string no console.</p>
 		<!--- RESPOSTA 2 ---->
+		<form>
+			<label for="text">Texto: </label>
+			<input type="text" id="text" name="text" required>
+			<br>
+			<label for="times">Vezes: </label>
+			<input type="times" id="times" name="times" required>
+			<button type="button" onclick="getValues()">Responder</button>
+			<br>
+			<label id="result"></label>
+		</form>
 		<script>
-			console.log('resposta 2');
+			console.log('resposta 2')
 			//insira a resposta aqui.
+			function repeatText(text, times) {
+				var result = []
+				for (var i = 0; i< times; i++){
+					result.push(text)
+				}
+				
+				var finalString = result.join(', ')
+				return finalString
+			}
+
+			function getValues() {
+				var text = $('#text').val()
+				var times = $('#times').val()
+				if(text != '' && times != '') {
+					var result = repeatText(text, times)
+					$('#result').text('Resultado: ' + result)
+				}
+			}
 		</script>
 
 		<div class="border"></div>
@@ -42,7 +80,7 @@
 		<p>3) Dado o seguinte HTML:</p>
 		<pre>&lt;div class="pai"&gt;&lt;/div&gt;<br>&lt;div class="filho&gt;&lt;/div&gt;</pre>
 		<p>Qual o código seria necessário para inserir a div 'filho' dentro da div 'pai'?</p>
-
+		<textarea style="width: 460px;height: 20px;">$(document).ready(function(){$('.pai').append($('.filho'))})</textarea>
 		<div class="pai"></div>
 		<div class="filho"></div>
 
@@ -50,6 +88,9 @@
 		<script>
 			console.log('resposta 3');
 			//insira a resposta aqui.
+			$(document).ready(function(){
+				$('.pai').append($('.filho'))
+			})
 		</script>
 		<div class="border"></div>
 		<!--- PERGUNTA 4 ---->
@@ -61,7 +102,7 @@
 			<li>inserir uma classe 'last' no último parágrafo</li>
 		</ol>
 		<!--- RESPOSTA 4 ---->
-		<div style="display: none;">
+		<div class="pai" style="display: none;">
 			<p>texto</p>
 			<p>texto</p>
 			<p>texto</p>
@@ -69,15 +110,42 @@
 		<script>
 			console.log('resposta 4');
 			//insira a resposta aqui.
+			$('.pai').show()
+			$('.pai').children().eq(1).text('Texto alterado')
+			$('.pai').children().eq(2).addClass('last')
+
 		</script>
 		<div class="border"></div>
 		<!--- PERGUNTA 5 ---->
 		<p>5) Com o uso do operador ternário, faça uma função que recebe uma idade (número) e retorne uma string, no console, com o texto "maior de idade" se o número maior que "18" ou "menor de idade", se o número for menor que "18".</p>
-
+		<form>
+			<label for="age">Idade: </label>
+			<input type="age" id="age" name="age" required>
+			<button type="button" onclick="getAge()">Responder</button>
+			<br>
+		<label id="resultAge"></label>
+		</form>
 		<!--- RESPOSTA 5 ---->
 		<script>
 			console.log('resposta 5');
 			//insira a resposta aqui.
+			function calcAge(age){
+				if( age < 18) {
+					result = 'Menor de Idade'
+				} else if(age >= 18) {
+					result = 'Maior de Idade'
+				}
+				return result
+			}
+			function getAge() {
+				var age = $('#age').val()
+				console.log(age)
+				if(age != '') {
+					var result = calcAge(parseInt(age))
+					console.log(result)
+					$('#resultAge').text('Resultado: ' + result)
+				}
+			}
 		</script>
 		<div class="border"></div>
 		<!--- PERGUNTA 6 ---->
@@ -91,12 +159,19 @@
 		</ol>
 		<!--- RESPOSTA 6 ---->
 		<script>
+			//insira a resposta aqui.
 			console.log('resposta 6');
 			var obj = {
 				nomeObj: 'Mouse',
 				pesoObj: '150g'
 			}
-			//insira a resposta aqui.
+			function modificarEExibir() {
+				obj.nomeObj = 'Teclado';
+				obj.pesoObj = '500g';
+				var arrayObj = [obj];
+				console.log(arrayObj);
+			}
+			modificarEExibir();
 		</script>
 		<div class="border"></div>
 		<!--- PERGUNTA 7 ---->
@@ -111,6 +186,18 @@
 		<script>
 			console.log('resposta 7');
 			//insira a resposta aqui.
+			var texto = "Eu quero trabalhar na Seri.e Design";
+
+			var textoReverso = texto.split('').reverse().join('').replace(/\s/g, '!');
+			console.log('O texto de trás para frente substituindo os espaços em branco por pontos de exclamação: ', textoReverso);
+
+			var ultimaPalavra = texto.split(' ').pop();
+			console.log('A última palavra do texto: ', ultimaPalavra);
+
+			var quantidadeCaracteres = texto.length;
+			console.log('A quantidade de caracteres do texto: ', quantidadeCaracteres);
+
+			console.log('O tipo de alguma variável criada acima: ', typeof textoReverso);
 		</script>
 		<div class="border"></div>
 		<!--- PERGUNTA 8 ---->
@@ -120,15 +207,21 @@
 
 		<p>faça uma função para adicionar o atributo 'data-id' em cada uma das divs, com o valor sendo a posição que se encontra a div na lista. Ex.: &lt;div data-id="2"&gt;</p>.
 		<!--- RESPOSTA 8 ---->
-
-		<div></div>
-		<div></div>
-		<div></div>
-		<div></div>
-		<div></div>
+		<div class="pergunta8">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
 		<script>
 			console.log('resposta 8');
 			//insira a resposta aqui.
+			$(document).ready(function() {
+				$('.pergunta8').children().each(function(index) {
+					$(this).attr('data-id', index + 1);
+				});
+			});
 		</script>
 		<div class="border"></div>
 		<!--- PERGUNTA 9 ---->
@@ -154,6 +247,13 @@
 		<script>
 			console.log('resposta 9');
 			//insira a resposta aqui.
+			$(document).ready(function() {
+				$('.content').on('click', 'li', function() {
+					$(this).find('.subcontainer ul').css('display', 'block');
+					$(this).parents('.content').addClass('active');
+					$(this).find('.subcontainer').addClass('active');
+				});
+			});
 		</script>
 		<div class="border"></div>
 		<!--- PERGUNTA 10 ---->
@@ -167,11 +267,14 @@
 				var intervalObserver = setInterval(function() {
 					target = document.querySelector('footer .content');
 					if ($(target).length >= 1 && restSecs <= 5) {
+						console.log('aqui')
 						//do something
 					} else if (restSecs == 5) {
+						console.log('aqui2')
 						clearInterval(intervalObserver);
 					} else {
 						restSecs++;
+						console.log('aqui')
 					}
 				}, 1000);
 			}
@@ -187,7 +290,8 @@
 		</ol>
 		<!--- RESPOSTA 10 ---->
 		<div>
-			<p style="color: #F00;">RESPOSTA: </p>
+			<p style="color: #F00;">RESPOSTA: 4</p>
+			<p>no if esta verificando se existe footer .content e o restSecs é menor do que 5, caso seja ele nao esta fazendo nada, no if else ele só verifica se o restSecs é igual a 5 caso for ele interrompe, no else ele adiciona +1 no restSecs, dito isso ele vai cair no else if</p>
 		</div>
 	</div>
 </body>
